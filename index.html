@@ -3,41 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imagem Baseada no Horário</title>
+  <title>Redirecionamento por Horário</title>
   <script>
-    // Função para redirecionar para a imagem baseada no horário
-    function redirectToImageBasedOnTime() {
+    // Função para redirecionar com base no horário
+    function redirectToImage() {
       // Lista de imagens
       const images = {
-        morning: 'images/imagem1.gif',  // Antes das 12h
-        afternoon: 'images/imagem2.gif', // Entre 12h e 18h
-        evening: 'images/imagem3.gif'  // Após as 18h
+        morning: 'images/morning.jpg',    // Antes das 12h
+        afternoon: 'images/afternoon.jpg', // Entre 12h e 18h
+        evening: 'images/evening.jpg'     // Após as 18h
       };
 
       // Obtém a hora atual
       const now = new Date();
       const hour = now.getHours();
-      let selectedImage;
 
-      // Define a imagem com base no horário
+      // Define a imagem baseada no horário
+      let selectedImage;
       if (hour < 12) {
-        selectedImage = images.morning; // Antes das 12h
+        selectedImage = images.morning; // Antes de 12h
       } else if (hour < 18) {
         selectedImage = images.afternoon; // Entre 12h e 18h
       } else {
-        selectedImage = images.evening; // Após as 18h
+        selectedImage = images.evening; // Após 18h
       }
 
-      // Redireciona para a imagem escolhida
+      // Redireciona para a imagem
       window.location.href = selectedImage;
     }
 
-    // Redireciona automaticamente ao carregar a página
-    window.onload = redirectToImageBasedOnTime;
+    // Chama a função ao carregar a página
+    window.onload = redirectToImage;
   </script>
 </head>
 <body>
-  <!-- Conteúdo opcional enquanto redireciona -->
-  <h1>Carregando uma imagem baseada no horário...</h1>
+  <h1>Carregando imagem baseada no horário...</h1>
 </body>
 </html>
